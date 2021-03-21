@@ -11,10 +11,9 @@ public class Note implements Parcelable {
     private String noteDescription;
     private String noteDate;
 
-    public Note(String noteName, String noteDescription, String noteDate){
+    public Note(String noteName, String noteDescription){
         this.noteName = noteName;
         this.noteDescription = noteDescription;
-        this.noteDate = noteDate;
     }
 
     protected Note(Parcel in) {
@@ -34,7 +33,6 @@ public class Note implements Parcelable {
     public int describeContents() {
         return 0;
     }
-
 
     public static final Creator<Note> CREATOR = new Creator<Note>() {
         @Override

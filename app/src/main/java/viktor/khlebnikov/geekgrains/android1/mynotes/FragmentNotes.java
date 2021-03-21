@@ -16,6 +16,8 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import java.util.Calendar;
+
 public class FragmentNotes extends Fragment {
 
     public static final String CURRENT_NOTE = "CurrentNote";
@@ -48,8 +50,7 @@ public class FragmentNotes extends Fragment {
             final int fi = i;
             tv.setOnClickListener(v -> {
                 currentNote = new Note(getResources().getStringArray(R.array.notes_names)[fi],
-                                       getResources().getStringArray(R.array.notes_descriptions)[fi],
-                                       getResources().getStringArray(R.array.notes_date)[fi]);
+                        getResources().getStringArray(R.array.notes_descriptions)[fi]);
                 showNoteContent(currentNote);
             });
         }
@@ -69,14 +70,11 @@ public class FragmentNotes extends Fragment {
                 == Configuration.ORIENTATION_LANDSCAPE;
 
         if (savedInstanceState != null) {
-            currentNote = savedInstanceState.getParcelable(CURRENT_NOTE);
+            currentNote = savedInstanceState.getParcelable(FragmentNotes.CURRENT_NOTE);
         } else {
-            // Если восстановить не удалось, то сделаем объект с первым индексом
             currentNote = new Note(getResources().getStringArray(R.array.notes_names)[0],
-                                   getResources().getStringArray(R.array.notes_descriptions)[0],
-                                   getResources().getStringArray(R.array.notes_date)[0]);
+                    getResources().getStringArray(R.array.notes_descriptions)[0]);
         }
-
 
         if (isLandscape) {
             showLandscapeContentNote(currentNote);
@@ -102,9 +100,12 @@ public class FragmentNotes extends Fragment {
     }
 
     private void showPortraitContentNote(Note currentNote) {
-        Intent intent = new Intent();
-        intent.setClass(getActivity(), ActivityNoteContent.class);
-        intent.putExtra(FragmentNoteContent.ARG_NOTE, currentNote);
-        startActivity(intent);
+
+        FragmentNoteContent detail = FragmentNoteContent.newInstance(currentNote);
+        FragmentManager fragmentManager = requireActivity().getSupportFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        fragmentTransaction.replace(R.id.notes_fragment_container, detail);
+        fragmentTransaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
+        fragmentTransaction.commit();
     }
 }

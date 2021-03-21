@@ -29,6 +29,7 @@ public class FragmentNoteContent extends Fragment {
         if (getArguments() != null) {
             note = getArguments().getParcelable(ARG_NOTE);
         }
+
     }
 
     @Override
