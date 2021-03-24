@@ -16,6 +16,8 @@ import android.view.MenuItem;
 import com.google.android.material.navigation.NavigationView;
 import com.google.android.material.snackbar.Snackbar;
 
+import viktor.khlebnikov.geekgrains.android1.mynotes.fragments.FragmentNotes;
+
 public class MainActivity extends AppCompatActivity implements MenuItem.OnMenuItemClickListener {
 
     private DrawerLayout drawer;

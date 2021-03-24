@@ -1,6 +1,5 @@
-package viktor.khlebnikov.geekgrains.android1.mynotes;
+package viktor.khlebnikov.geekgrains.android1.mynotes.fragments;
 
-import android.content.res.TypedArray;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -9,6 +8,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+
+import viktor.khlebnikov.geekgrains.android1.mynotes.Note;
+import viktor.khlebnikov.geekgrains.android1.mynotes.R;
 
 public class FragmentNoteContent extends Fragment {
 

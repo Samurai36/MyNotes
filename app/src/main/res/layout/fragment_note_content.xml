@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".FragmentNoteContent">
+    tools:context=".fragments.FragmentNoteContent">
 
     <TextView
         android:id="@+id/note_name_tv"
