@@ -9,7 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import viktor.khlebnikov.geekgrains.android1.mynotes.Note;
+import viktor.khlebnikov.geekgrains.android1.mynotes.Cards.Note;
 import viktor.khlebnikov.geekgrains.android1.mynotes.R;
 
 public class FragmentNoteContent extends Fragment {
@@ -44,9 +44,10 @@ public class FragmentNoteContent extends Fragment {
         TextView TextViewDescription = view.findViewById(R.id.note_description_tv);
         TextViewDescription.setText(note.getNoteDescription());
 
-        TextView TextViewDate = view.findViewById(R.id.note_date_tv);
-        TextViewDate.setText(note.getNoteDate());
+        TextView TextViewDate = view.findViewById(R.id.note_init_date_tv);
+        TextViewDate.setText(String.format("%s%s", TextViewDate.getText().toString(), note.getNoteDate()));
 
         return view;
     }
+
 }

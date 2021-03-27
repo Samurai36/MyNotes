@@ -4,4 +4,14 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="search">search</string>
+    <string name="sort">sort</string>
+    <string name="add_new_note">add new note</string>
+    <string name="clear_list_note">clear all note</string>
+    <string name="delete_note">delete note</string>
+    <string name="edit_note">edit note</string>
+    <string name="save">Save</string>
+    <string name="description_note">Description Note</string>
+    <string name="name_note">Name Note</string>
+    <string name="date_of_creation">Date of creation:\n</string>
 </resources>
