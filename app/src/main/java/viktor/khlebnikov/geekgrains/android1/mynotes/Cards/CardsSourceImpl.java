@@ -14,7 +14,6 @@ public class CardsSourceImpl implements CardsSource {
     private static final Object LOCK = new Object();
     private volatile static CardsSourceImpl sInstance;
     private final LinkedList<Note> mNoteSource = new LinkedList<>();
-    private final Resources mResources;
 
     public static CardsSourceImpl getInstance(Resources resources) {
         CardsSourceImpl instance = sInstance;
@@ -30,16 +29,11 @@ public class CardsSourceImpl implements CardsSource {
     }
 
     private CardsSourceImpl(Resources resources) {
-        mResources = resources;
-    }
-
-    public CardsSourceImpl init() {
-        String[] titles = mResources.getStringArray(R.array.notes_names);
-        String[] descriptions = mResources.getStringArray(R.array.notes_descriptions);
+        String[] titles = resources.getStringArray(R.array.notes_names);
+        String[] descriptions = resources.getStringArray(R.array.notes_descriptions);
         for (int i = 0; i < descriptions.length; i++) {
             mNoteSource.add(new Note(titles[i], descriptions[i]));
         }
-        return this;
     }
 
     @Override

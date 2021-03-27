@@ -65,7 +65,7 @@ public class FragmentNotes extends Fragment {
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(requireActivity());
         recyclerView.setLayoutManager(linearLayoutManager);
 
-        mCardDataSource = CardsSourceImpl.getInstance(getResources()).init();
+        mCardDataSource = CardsSourceImpl.getInstance(getResources());
         mViewHolderAdapter = new ViewHolderAdapter(this, mCardDataSource);
         mViewHolderAdapter.setOnClickListener((v, position) -> {
             currentNote = new Note(getResources().getStringArray(R.array.notes_names)[position],
