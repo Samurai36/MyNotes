@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1065278876402",
+    "project_id": "mynotes-e7058",
+    "storage_bucket": "mynotes-e7058.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1065278876402:android:08d0c368ed4d98b2fc3e6b",
+        "android_client_info": {
+          "package_name": "viktor.khlebnikov.geekgrains.android1.mynotes"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1065278876402-037bb59trv9atibo827k192sjn0u2tsb.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB9X8n31LNqIW_OA4CsVo8Bnmwrfz5xhsM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1065278876402-037bb59trv9atibo827k192sjn0u2tsb.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
