@@ -29,14 +29,14 @@ public class CardsSourceFirebaseImpl implements CardsSource {
 
     private final CollectionReference collection = store.collection(CARDS_COLLECTION);
 
-    private List<CardData> cardsData = new ArrayList<CardData>();
+    private List<CardData> cardsData = new ArrayList<>();
 
     @Override
     public CardsSource init(final CardsSourceResponse cardsSourceResponse) {
         collection.orderBy(CardDataMapping.Fields.DATE, Query.Direction.DESCENDING).get()
             .addOnCompleteListener(task -> {
                 if (task.isSuccessful()) {
-                    cardsData = new ArrayList<CardData>();
+                    cardsData = new ArrayList<>();
                     for (QueryDocumentSnapshot document : Objects.requireNonNull(task.getResult())) {
                         Map<String, Object> doc = document.getData();
                         String id = document.getId();
@@ -80,12 +80,8 @@ public class CardsSourceFirebaseImpl implements CardsSource {
 
     @Override
     public void addCardData(final CardData cardData) {
-        collection.add(CardDataMapping.toDocument(cardData)).addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
-            @Override
-            public void onSuccess(DocumentReference documentReference) {
-                cardData.setId(documentReference.getId());
-            }
-        });
+        collection.add(CardDataMapping.toDocument(cardData)).
+                addOnSuccessListener(documentReference -> cardData.setId(documentReference.getId()));
     }
 
     @Override
